@@ -1,69 +1,70 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 #root {
-  max-width: 100vw;
-  margin: 0;
-  padding: 0;
+max-width: 100vw;
+margin: 0;
+padding: 0;
 }
 
 
 html, body {
-    margin: 0;
-    padding: 0;
-    background-color: black;
-    font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  font-family: 'Roboto', sans-serif;
 }
 
 body::-webkit-scrollbar {
-  display: none;
+display: none;
 }
-    
+  
 body {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+-ms-overflow-style: none;
+scrollbar-width: none;
 }
+
 
 /* Footer */
 
 footer {
-    color: #93D432;;
-    bottom: 0;
-    text-align: center;
-    height: 74px;
-    display: flex;
-    flex-shrink: 0;
-    justify-content: center;
-    align-items: center;
-    margin-top: auto;
-    font-weight: 500;
+  color: lime;
+  bottom: 0;
+  text-align: center;
+  height: 74px;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  font-weight: 500;
 }
 
 #error-page {
-    color: white;
+  color: white;
 }
 
 /* Header  */
 
 header {
-    height: 110px;
-    display: flex;
-    align-items: center;
-    padding-block: 10px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  padding-block: 10px;
 }
 
 header .site-logo {
-    color: black;
-    margin-right: auto;
-    text-transform: uppercase;
-    font-weight: 900;
-    font-size: 25px;
+  color: black;
+  margin-right: auto;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 25px;
 }
 
 
 header .site-logo:hover {
-  color: #93D432;
+  color: lime;
   margin-right: auto;
   text-transform: uppercase;
   font-weight: 900;
@@ -72,53 +73,55 @@ header .site-logo:hover {
 }
 
 header a {
-    text-decoration: none;
-    color: #93D432;;
-    font-weight: 600;
-    padding: 5px 20px;
+  text-decoration: none;
+  color: lime;
+  font-weight: 600;
+  padding: 5px 20px;
+  font-size: 22px;
+  text-transform: uppercase;
 
 }
 
 header a:hover {
-    color: white;
-    text-decoration: underline;
+  color: white;
+  text-decoration: underline;
+  font-size: 32px;
 }
 
 #header-img {
-    width: 100px;
-    height: 100px;
+  width: 100px;
+  height: 100px;
 }
 
 
 
 #main-img {
-    width: 500px;
-    height: 500px;
+  width: 500px;
+  height: 500px;
 }
 
 @keyframes spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
   }
+  to {
+    transform: rotate(360deg);
+  }
+}
   
-  .spin-image {
-    animation: spin 20s linear infinite; 
-  }
+.spin-image {
+  animation: spin 20s linear infinite; 
+}
 
 .characters {
-    color: white;
+  color: white;
 }
 
 /* Cards */
 
 .cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 #charcard {
@@ -127,16 +130,16 @@ header a:hover {
 }
 
 .card {
-    margin: 20px;
-    padding: 0;
+  margin: 20px;
+  padding: 0;
 }
 
 /* About 
  */
 
 .about {
-    color: white;
-    padding: 10px;
+  color: white;
+  padding: 10px;
 }
 
 .about-hero-image {
@@ -162,7 +165,7 @@ header a:hover {
 }
 
 .about-page-cta {
-  background-color: #93D432;
+  background-color: lime;
   color: #161616;
   padding-inline: 32px;
   padding-bottom: 52px;
@@ -172,6 +175,7 @@ header a:hover {
 .about-page-cta h2 {
   margin: 0;
   padding-block: 37px;
+  background-color: lime;
 }
   
 .about-page-cta .link-button {
@@ -194,12 +198,12 @@ header a:hover {
 
 .input {
   margin: 20px;
-  background-color: #93D432;
+  background-color: lime;
   color: black;
 }
 
 .input-btn {
-  background-color: #93D432;
+  background-color:lime;
   color: white;
   padding: 10px 20px;
   border-radius: 5px;
@@ -223,5 +227,70 @@ header a:hover {
   margin: 400px;
   width: 100px;
   height: 100px;
-  color: #93D432;
+  color: lime;
+}
+
+/* Character Details */
+
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.first-char, .second-char {
+  border: 1px solid black; 
+  box-sizing: border-box;
+  color: white;
+  margin: 20px;;
+}
+
+.favorites {
+  display: flex;
+}
+
+.favorite-text {
+  text-align: center;
+  color: white;
+}
+
+button.btn.btn-primary {
+  margin: 5px;
+  background-color: lime !important;
+  border-color: lime !important;
+}
+
+button.btn.btn-primary:hover {
+  margin: 5px;
+  background-color: white !important;
+  border-color: white !important;
+  color: black;
+}
+
+button.btn.btn-warning {
+  margin: 5px;
+  background-color: #00AFC8 !important;
+  border-color: #00AFC8 !important;
+  color: white;
+}
+
+button.btn.btn-warning:hover {
+  margin: 5px;
+  background-color: black !important;
+  border-color: black !important;
+  color: white;
+}
+
+
+
+button.btn.btn-danger {
+  margin: 5px;
+  background-color: black !important;
+  border-color: black !important;
+}
+
+button.btn.btn-danger:hover {
+  margin: 5px;
+  background-color: #00AFC8 !important;
+  border-color: #00AFC8 !important;
 }

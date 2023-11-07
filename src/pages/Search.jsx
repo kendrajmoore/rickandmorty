@@ -2,6 +2,10 @@ import { useState } from 'react'
 import axios from 'axios'
 import Card from 'react-bootstrap/Card';
 import Spinner from 'react-bootstrap/Spinner';
+import { useOutletContext } from 'react-router-dom';
+import CharCard from '../components/CharCard';
+import LocCard from '../components/LocCard';
+import EpisodeCard from '../components/EpisodeCard';
 
 function Search() {
     const [searchInput, setSearchInput] = useState('');
@@ -9,6 +13,7 @@ function Search() {
     const [locationData, setLocationData] = useState([]);
     const [episodeData, setEpisodeData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const { setFavorites, favorites } = useOutletContext();
 
 
     const handleChange = (e) => {
@@ -62,46 +67,37 @@ function Search() {
     }
 
     const characterCard = data.map((data, idx) => (
-        <Card id="charcard" key={idx} style={{ width: '18rem' }}>
-        <Card.Img variant="top" src={data.image} />
-        <Card.Body>
-          <Card.Title>{data.name}</Card.Title>
-          <Card.Text>
-            {data.species}
-          </Card.Text>
-          <Card.Text>
-            {data.status}
-          </Card.Text>
-        </Card.Body>
-      </Card>
+      <CharCard 
+        id={data.id}
+        key={data.id}
+        name={data.name} 
+        species={data.species}
+        status={data.status}
+        image={data.image}
+        favorites={favorites}
+        setFavorites={setFavorites}
+        />
       ))
 
+
       const locationCard = locationData.map((locationData, idx) => (
-        <Card id="charcard" key={idx} style={{ width: '18rem' }}>
-        <Card.Body>
-          <Card.Title>{locationData.name}</Card.Title>
-          <Card.Text>
-            {locationData.dimension}
-          </Card.Text>
-          <Card.Text>
-            {locationData.type}
-          </Card.Text>
-        </Card.Body>
-      </Card>
+        <LocCard 
+          key={locationData.id}
+          id={locationData.id}
+          name={locationData.name} 
+          dimension={locationData.dimension} 
+          type={locationData.type} 
+        />
       ))
 
       const episodeCard = episodeData.map((episodeData, idx) => (
-        <Card id="charcard" key={idx} style={{ width: '18rem' }}>
-        <Card.Body>
-          <Card.Title>{episodeData.name}</Card.Title>
-          <Card.Text>
-            {episodeData.episode}
-          </Card.Text>
-          <Card.Text>
-            {episodeData.air_date}
-          </Card.Text>
-        </Card.Body>
-      </Card>
+        <EpisodeCard 
+          key={episodeData.id}
+          id={episodeData.id}
+          name={episodeData.name}
+          episode={episodeData.episode}
+          air_date={episodeData.air_date}
+        />
       ))
 
   return (
@@ -113,9 +109,9 @@ function Search() {
       
         <div className='cards'>
         { isLoading &&  <Spinner className="spinner" animation="border" variant="secondary" /> }
-          {characterCard  }
-          {locationCard }
-          {episodeCard }
+          { characterCard  }
+          { locationCard }
+          { episodeCard }
          
        </div>
     </>

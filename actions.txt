@@ -1,3 +1,4 @@
-1. Filter -> dead, alien, 
-2. Fix search
-3. Show single character
+1. Filter -> dead, alien, on characters page
+4. About page for each season with a button/modal
+6. Go thru episode on detail page
+6. Add cypress
