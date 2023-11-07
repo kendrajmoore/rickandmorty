@@ -1,33 +1,64 @@
 import { useState } from 'react'
 import axios from 'axios'
 import Card from 'react-bootstrap/Card';
+import Spinner from 'react-bootstrap/Spinner';
 
 function Search() {
     const [searchInput, setSearchInput] = useState('');
     const [data, setData] = useState([]);
     const [locationData, setLocationData] = useState([]);
     const [episodeData, setEpisodeData] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+
+
     const handleChange = (e) => {
         e.preventDefault();
         setSearchInput(e.target.value)
         console.log(e.target.value)
     }
     async function fetchData(){
-        const response = await axios.get(`https://rickandmortyapi.com/api/character/?name=${searchInput}`)
-        setData((await response).data.results) 
-        console.log(response)   
+        setIsLoading(true);
+        let allCharacters = [];
+        let currentPage = 1;
+        let totalPages = null;
+        try {
+          let response = await axios.get(`https://rickandmortyapi.com/api/character/?name=${searchInput}`)
+          console.log(response) 
+          allCharacters = response.data.results;
+          totalPages = response.data.info.pages;
+          while(currentPage < totalPages){
+            currentPage ++;
+            response = await axios.get(`https://rickandmortyapi.com/api/character/?page=${currentPage}`);
+            allCharacters = [...allCharacters, ...response.data.results];
+          }
+          setData(allCharacters);
+          console.log(response) 
+        } catch(error) {
+            console.error('Error fetching all characters:', error);
+        }
+        setLocationData([])
+        setEpisodeData([])
+        setIsLoading(false); 
     }
 
     async function fetchLocation(){
+        setIsLoading(true);
         const response = await axios.get(`https://rickandmortyapi.com/api/location/?name=${searchInput}`)
         setLocationData((await response).data.results) 
-        console.log(response)   
+        setData([])
+        setEpisodeData([])
+        console.log(response)
+        setIsLoading(false);  
     }
 
     async function fetchEpisode(){
+        setIsLoading(true);
         const response = await axios.get(`https://rickandmortyapi.com/api/episode/?name=${searchInput}`)
         setEpisodeData((await response).data.results) 
-        console.log(response)   
+        setData([])
+        setLocationData([])
+        console.log(response)  
+        setIsLoading(false);
     }
 
     const characterCard = data.map((data, idx) => (
@@ -81,9 +112,11 @@ function Search() {
         <button onClick={fetchEpisode}className='input-btn'>Episode</button>
       
         <div className='cards'>
-          {data && characterCard}
-          {locationData && locationCard}
-          {episodeData && episodeCard}
+        { isLoading &&  <Spinner className="spinner" animation="border" variant="secondary" /> }
+          {characterCard  }
+          {locationCard }
+          {episodeCard }
+         
        </div>
     </>
   )

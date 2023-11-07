@@ -1,0 +1,3 @@
+1. Filter -> dead, alien, 
+2. Fix search
+3. Show single character
