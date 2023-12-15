@@ -1,16 +1,4 @@
-# Rick and Morty
-
-A front end app to display all the characters featured on rickandmorty
-
-![Logo](https://oaidalleapiprodscus.blob.core.windows.net/private/org-sfa6hKysCGABt5slXsbJ9kaN/user-VDbe0nNDSJvCRcTmIblboTrq/img-tM67x2ulC3AQZHtuOOfcVGXc.png?st=2023-12-15T21%3A47%3A01Z&se=2023-12-15T23%3A47%3A01Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-12-15T19%3A17%3A08Z&ske=2023-12-16T19%3A17%3A08Z&sks=b&skv=2021-08-06&sig=RYWpw6wS7yXnruJlUIOB5zeS0h95gBbs5AFAemTpKBQ%3D)
-
-## Tools
-React
-
-## Reason
-Learn how to integrate APIs into React 
-
-# Rick and Morty
+## Rick and Morty
 
 ![Language Counts](https://img.shields.io/github/languages/count/kendrajmoore/rickandmorty?logo=react)
 ![MIT License](https://badgen.net/badge/license/MIT/blue)
